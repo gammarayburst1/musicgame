@@ -1,0 +1,35 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    color: white;
+    justify-content: center;
+}
+
+.title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: black;
+}
+
+.big-button, .small-button {
+    flex: 1;
+    margin: 10px 0;  /* 上下のマージンを追加 */
+    margin-right: 10px;  /* 右マージンを設定 */
+    padding: 10px 0;  /* 縦方向のpaddingを0にし、heightでサイズを調整 */
+    background-color: #f5f5f5;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 16px;
+    box-sizing: border-box;
+    min-width: 0;
+    height: 60px;  /* ボタンの縦の大きさを指定 */
+}
+
+.buttons-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+}

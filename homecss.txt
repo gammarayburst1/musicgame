@@ -1,0 +1,127 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Button, Typography, Box, createTheme, ThemeProvider } from '@mui/material';
+import styled from '@emotion/styled';
+import bgImage from '../images/1.png';
+
+const theme = createTheme({
+  typography: {
+    h4: {
+      fontSize: '3rem',
+    },
+  },
+  palette: {
+    primary: {
+      main: '#fafad2',
+    },
+    secondary: {
+      main: '#ffd0cb',
+    },
+    background: {
+      default: '#111111',
+    },
+    titleColor: {
+        main: '#aaaaaa',
+      },
+    myPageButtonColor: {
+        main: '#ffd0cb',
+    },
+  },
+});
+
+const StyledButton = styled(Button)`
+  width: 100%;
+  margin: 15px 0;
+  font-size: 2.5rem;
+  background-color: rgba(0, 0, 0, 0.3);
+`;
+
+const SmallButton = styled(Button)`
+  flex-grow: 1;
+  margin: 10px;
+  font-size: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.3);
+
+  &.ranking {
+    color: #eb5e93;
+    border: 1px solid #eb5e93;
+
+    &:hover {
+    border-color: #ffa9a0;
+    color: #ffa9a0;
+    }
+  }
+
+  &.settings {
+    color: #ff9800;
+    border: 3px solid #ff9800;
+
+    &:hover {
+    color: #ffaa20;
+    border-color: #ffaa20;
+    }
+  }
+
+  &.search {
+    color: #2196f3;
+    border: 3px solid #2196f3;
+
+    &:hover {
+    color: #33a8ff;
+    border-color: #33a8ff;
+    }
+  }
+`;
+
+
+function Home() {
+  return (
+    <ThemeProvider theme={theme}>
+        <Box
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        p={20}
+        sx={{
+          bgcolor: theme.palette.background.default,
+          backgroundImage: `url(${bgImage})`,
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
+        }}
+      >
+        {/* タイトル */}
+        <Typography variant="h4" color="titleColor" gutterBottom>
+            音感ゲーム
+        </Typography>
+
+        {/* ゲーム開始ボタン */}
+        <StyledButton variant="outlined" color="primary" component={Link} to="/game-start">
+          ゲーム開始
+        </StyledButton>
+
+        {/* マイページボタン */}
+        <StyledButton variant="outlined" color="myPageButtonColor" component={Link} to="/mypage">
+          マイページ
+        </StyledButton>
+
+        {/* 下部のボタン群 */}
+        <Box display="flex" width="100%">
+            <SmallButton className="ranking" variant="outlined" component={Link} to="/ranking">
+                ランキング
+            </SmallButton>
+
+            <SmallButton className="settings" variant="outlined" component={Link} to="/settings">
+                設定
+            </SmallButton>
+
+            <SmallButton className="search" variant="outlined" component={Link} to="/search">
+                ユーザー検索
+            </SmallButton>
+        </Box>
+      </Box>
+    </ThemeProvider>
+  );
+}
+
+export default Home;
