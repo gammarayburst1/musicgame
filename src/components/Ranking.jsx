@@ -81,7 +81,6 @@ const BackButton = styled(Button)(({ theme }) => ({
   },
 }));
 
-
 const Ranking = () => {
   const rankings = [
     { rank: 1, username: "user1", rating: 2943 },
